@@ -1,6 +1,6 @@
 {
   "name": "react-flash-message",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description":
     "Simple component that unmounts a component after a given delay. Also provides some handlers so you can act on behaviour",
   "main": "build/index.js",

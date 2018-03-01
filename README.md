@@ -11,7 +11,7 @@ import FlashMessage from 'react-flash-message'
 
 const Message = () => (
   <FlashMassage duration={5000}>
-    <strong>I'll disapper in 5 seconds!</strong>
+    <strong>I will disapper in 5 seconds!</strong>
   </FlashMessage>
 )
 
