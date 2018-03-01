@@ -1,0 +1,44 @@
+{
+  "name": "react-flash-message",
+  "version": "1.0.0",
+  "description": "Simple component that unmounts a component after a given delay. Also provides some handlers so you can act on behaviour",
+  "main": "build/index.js",
+  "author": "Daniel Sneijers <daniel.sneijers@gmail.com> (https://github.com/danielsneijers)",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "webpack --mode development --watch",
+    "build": "webpack --mode production",
+    "test": "jest",
+    "lint": "eslint --ext .js --ext .jsx src --fix"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/plugin-transform-react-jsx": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40",
+    "@babel/preset-react": "^7.0.0-beta.40",
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "^22.4.1",
+    "babel-loader": "^8.0.0-beta.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.1",
+    "eslint": "^4.18.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "html-webpack-plugin": "webpack-contrib/html-webpack-plugin",
+    "jest": "^22.4.2",
+    "prettier": "^1.11.1",
+    "regenerator-runtime": "^0.11.1",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.9",
+    "webpack-dev-server": "^3.1.0"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}
