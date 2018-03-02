@@ -1,7 +1,7 @@
 {
   "name": "react-flash-message",
   "version": "1.0.2",
-  "description": "Simple component that unmounts a component after a given delay. Also provides some handlers so you can act on behaviour",
+  "description": "Simple component that unmounts a component after a given delay.",
   "main": "build/index.js",
   "author": "Daniel Sneijers <daniel.sneijers@gmail.com> (https://github.com/danielsneijers)",
   "repository": {

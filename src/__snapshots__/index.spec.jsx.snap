@@ -21866,7 +21866,7 @@ ReactWrapper {
       "refs": Object {},
       "remaining": 1000,
       "resumeTimer": [Function],
-      "start": 2018-03-01T11:33:59.354Z,
+      "start": 2018-02-13T03:41:20.000Z,
       "state": Object {
         "isVisible": false,
       },
@@ -43625,7 +43625,7 @@ ReactWrapper {
         "refs": Object {},
         "remaining": 1000,
         "resumeTimer": [Function],
-        "start": 2018-03-01T11:33:59.354Z,
+        "start": 2018-02-13T03:41:20.000Z,
         "state": Object {
           "isVisible": false,
         },
@@ -45510,9 +45510,9 @@ ReactWrapper {
         "persistOnHover": true,
       },
       "refs": Object {},
-      "remaining": 998,
+      "remaining": 1000,
       "resumeTimer": [Function],
-      "start": 2018-03-01T11:33:59.185Z,
+      "start": 2018-02-13T03:41:20.000Z,
       "state": Object {
         "isVisible": true,
       },
@@ -46314,9 +46314,9 @@ ReactWrapper {
                       "persistOnHover": true,
                     },
                     "refs": Object {},
-                    "remaining": 998,
+                    "remaining": 1000,
                     "resumeTimer": [Function],
-                    "start": 2018-03-01T11:33:59.185Z,
+                    "start": 2018-02-13T03:41:20.000Z,
                     "state": Object {
                       "isVisible": true,
                     },
@@ -47041,9 +47041,9 @@ ReactWrapper {
                       "persistOnHover": true,
                     },
                     "refs": Object {},
-                    "remaining": 998,
+                    "remaining": 1000,
                     "resumeTimer": [Function],
-                    "start": 2018-03-01T11:33:59.185Z,
+                    "start": 2018-02-13T03:41:20.000Z,
                     "state": Object {
                       "isVisible": true,
                     },
@@ -48941,9 +48941,9 @@ ReactWrapper {
           "persistOnHover": true,
         },
         "refs": Object {},
-        "remaining": 998,
+        "remaining": 1000,
         "resumeTimer": [Function],
-        "start": 2018-03-01T11:33:59.185Z,
+        "start": 2018-02-13T03:41:20.000Z,
         "state": Object {
           "isVisible": true,
         },
@@ -49745,9 +49745,9 @@ ReactWrapper {
                         "persistOnHover": true,
                       },
                       "refs": Object {},
-                      "remaining": 998,
+                      "remaining": 1000,
                       "resumeTimer": [Function],
-                      "start": 2018-03-01T11:33:59.185Z,
+                      "start": 2018-02-13T03:41:20.000Z,
                       "state": Object {
                         "isVisible": true,
                       },
@@ -50472,9 +50472,9 @@ ReactWrapper {
                         "persistOnHover": true,
                       },
                       "refs": Object {},
-                      "remaining": 998,
+                      "remaining": 1000,
                       "resumeTimer": [Function],
-                      "start": 2018-03-01T11:33:59.185Z,
+                      "start": 2018-02-13T03:41:20.000Z,
                       "state": Object {
                         "isVisible": true,
                       },
@@ -72327,9 +72327,9 @@ ReactWrapper {
         "persistOnHover": true,
       },
       "refs": Object {},
-      "remaining": 998,
+      "remaining": 1000,
       "resumeTimer": [Function],
-      "start": 2018-03-01T11:33:59.221Z,
+      "start": 2018-02-13T03:41:20.000Z,
       "state": Object {
         "isVisible": false,
       },
@@ -94086,9 +94086,9 @@ ReactWrapper {
           "persistOnHover": true,
         },
         "refs": Object {},
-        "remaining": 998,
+        "remaining": 1000,
         "resumeTimer": [Function],
-        "start": 2018-03-01T11:33:59.221Z,
+        "start": 2018-02-13T03:41:20.000Z,
         "state": Object {
           "isVisible": false,
         },
@@ -94138,7 +94138,7 @@ ReactWrapper {
 }
 `;
 
-exports[`<FlashMessage /> mounts and unmounts children for use with react-transition-group 1`] = `
+exports[`<FlashMessage /> mounts and unmounts children 1`] = `
 Array [
   Array [
     "render",
@@ -94149,7 +94149,7 @@ Array [
 ]
 `;
 
-exports[`<FlashMessage /> mounts and unmounts children for use with react-transition-group 2`] = `
+exports[`<FlashMessage /> mounts and unmounts children 2`] = `
 Array [
   Array [
     "render",
@@ -94174,7 +94174,7 @@ Array [
 ]
 `;
 
-exports[`<FlashMessage /> renders 1`] = `
+exports[`<FlashMessage /> renders and sets a timer 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -94227,7 +94227,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`<FlashMessage /> renders 2`] = `
+exports[`<FlashMessage /> renders and sets a timer 2`] = `
 Array [
   Array [
     [Function],

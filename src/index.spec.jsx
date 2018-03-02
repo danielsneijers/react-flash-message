@@ -22,11 +22,22 @@ const makeComponent = props => (
 );
 
 describe('<FlashMessage />', () => {
+  beforeAll(() => {
+    const constantDate = new Date('2018-02-13T04:41:20');
+
+    /* eslint-disable-next-line no-global-assign */
+    Date = class extends Date {
+      constructor() {
+        return constantDate;
+      }
+    };
+  });
+
   beforeEach(() => {
     jest.useFakeTimers();
   });
 
-  it('renders', () => {
+  it('renders and sets a timer', () => {
     const tree = shallow(<FlashMessage />);
 
     expect(tree).toMatchSnapshot();
@@ -57,7 +68,7 @@ describe('<FlashMessage />', () => {
     expect(clearTimeout.mock.calls).toMatchSnapshot();
   });
 
-  it('mounts and unmounts children for use with react-transition-group', () => {
+  it('mounts and unmounts children', () => {
     const tracker = jest.fn();
     const Component = (
       <FlashMessage>
@@ -91,9 +102,7 @@ describe('<FlashMessage />', () => {
   });
 
   it('does unmount on hover when flag is set', () => {
-    const tree = mount(
-      makeComponent({ duration: 1000, persistOnHover: false })
-    );
+    const tree = mount(makeComponent({ duration: 1000, persistOnHover: false }));
     tree.simulate('mouseEnter');
 
     jest.runTimersToTime(1000);
