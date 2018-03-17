@@ -10,7 +10,7 @@ import { render } from 'react-dom';
 import FlashMessage from 'react-flash-message'
 
 const Message = () => (
-  <FlashMassage duration={5000}>
+  <FlashMessage duration={5000}>
     <strong>I will disapper in 5 seconds!</strong>
   </FlashMessage>
 )
@@ -23,12 +23,12 @@ render(Message, document.body);
 ### Component
 
 ```jsx
-import FlashMassage from 'react-flash-message';
+import FlashMessage from 'react-flash-message';
 
 // inside render
-<FlashMassage duration={5000} persistOnHover={true}>
+<FlashMessage duration={5000} persistOnHover={true}>
   <p>Message</p>
-</FlashMassage>;
+</FlashMessage>;
 ```
 
 ### Props
