@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { node, number, bool } from 'prop-types';
+import { node, number, bool } from 'prop-types'; // eslint-disable-line import/no-extraneous-dependencies
 
 class FlashMessage extends Component {
   constructor(props) {

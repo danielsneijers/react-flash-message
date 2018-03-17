@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { shallow, mount, render } from 'enzyme';
+/* eslint-disable react/prop-types, react/no-unescaped-entities */
+import React, { PureComponent } from 'react';
+import { shallow, mount } from 'enzyme';
 import FlashMessage from './index';
 
-class TestComponent extends Component {
+class TestComponent extends PureComponent {
   componentDidMount() {
     this.props.track('componentDidMount');
   }
