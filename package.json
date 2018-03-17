@@ -14,7 +14,18 @@
     "start": "webpack --mode development --watch",
     "build": "webpack --mode production",
     "test": "jest",
-    "lint": "eslint --ext .js --ext .jsx src --fix"
+    "lint": "eslint --ext .js --ext .jsx src --fix",
+    "prettier": "prettier --trailing-comma es5 --single-quote --write 'src/**/*.{js,jsx}'",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{js,jsx}": [
+        "yarn prettier",
+        "yarn lint",
+        "git add"
+      ]
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.40",
@@ -32,17 +43,22 @@
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "webpack-contrib/html-webpack-plugin",
+    "husky": "^0.14.3",
     "jest": "^22.4.2",
+    "lint-staged": "^7.0.0",
     "prettier": "^1.11.1",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "regenerator-runtime": "^0.11.1",
     "webpack": "^4.0.1",
     "webpack-cli": "^2.0.9",
     "webpack-dev-server": "^3.1.0"
   },
   "peerDependencies": {
-    "prop-types": "^15.6.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react": ">=15 <= 16",
+    "react-dom": ">=15 <= 16"
   }
 }
