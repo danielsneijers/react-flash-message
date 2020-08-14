@@ -1,26 +1,26 @@
-/* eslint-disable react/prop-types, react/no-unescaped-entities */
+/* eslint-disable max-classes-per-file, react/prop-types, react/no-unescaped-entities */
+import '@testing-library/jest-dom';
 import React, { PureComponent } from 'react';
-import { shallow, mount } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
 import FlashMessage from './index';
 
 class TestComponent extends PureComponent {
   componentDidMount() {
-    this.props.track('componentDidMount');
+    const { track } = this.props;
+    track('componentDidMount');
   }
+
   componentWillUnmount() {
-    this.props.track('componentWillUnmount');
+    const { track } = this.props;
+    track('componentWillUnmount');
   }
+
   render() {
-    this.props.track('render');
+    const { track } = this.props;
+    track('render');
     return <p>Hej, I'm a message!</p>;
   }
 }
-
-const makeComponent = props => (
-  <FlashMessage {...props}>
-    <TestComponent track={jest.fn()} />
-  </FlashMessage>
-);
 
 describe('<FlashMessage />', () => {
   beforeAll(() => {
@@ -39,76 +39,87 @@ describe('<FlashMessage />', () => {
   });
 
   it('renders and sets a timer', () => {
-    const tree = shallow(<FlashMessage />);
+    const message = 'test';
+    const { queryByText } = render(
+      <FlashMessage>
+        {message}
+      </FlashMessage>,
+    );
 
-    expect(tree).toMatchSnapshot();
-    expect(setTimeout).toHaveBeenCalledTimes(1);
+    expect(queryByText(message)).toBeInTheDocument();
     expect(setTimeout.mock.calls).toMatchSnapshot();
   });
 
   it('disappears after x seconds', () => {
-    const tree = shallow(makeComponent({ duration: 2000 }));
+    const message = 'test';
+    const { queryByText } = render(
+      <FlashMessage duration={2000}>
+        {message}
+      </FlashMessage>,
+    );
 
-    expect(tree).toMatchSnapshot();
+    expect(queryByText(message)).toBeInTheDocument();
 
     jest.runTimersToTime(2000);
-    tree.update();
 
-    expect(tree).toMatchSnapshot();
-    expect(setTimeout).toHaveBeenCalledTimes(1);
+    expect(queryByText(message)).not.toBeInTheDocument();
   });
 
   it('removes existing timer before umounting', () => {
-    const tree = shallow(makeComponent());
+    const { unmount } = render(
+      <FlashMessage>
+        <TestComponent track={jest.fn()} />
+      </FlashMessage>,
+    );
 
     expect(clearTimeout).toHaveBeenCalledTimes(1);
 
-    tree.instance().componentWillUnmount();
+    unmount();
 
     expect(clearTimeout).toHaveBeenCalledTimes(2);
-    expect(clearTimeout.mock.calls).toMatchSnapshot();
   });
 
   it('mounts and unmounts children', () => {
     const tracker = jest.fn();
-    const Component = (
+    render(
       <FlashMessage>
         <TestComponent track={tracker} />
-      </FlashMessage>
+      </FlashMessage>,
     );
-    const tree = mount(Component);
 
     expect(tracker.mock.calls).toMatchSnapshot();
 
     jest.runTimersToTime(5000);
-    tree.update();
 
     expect(tracker.mock.calls).toMatchSnapshot();
   });
 
   it("doesn't unmount on hover when flag is set", () => {
-    const tree = mount(makeComponent({ duration: 1000 }));
-    tree.simulate('mouseEnter');
+    const message = 'test';
+    const { queryByText } = render(<FlashMessage duration={1000}>{message}</FlashMessage>);
 
+    fireEvent.mouseEnter(queryByText(message));
+    jest.runTimersToTime(2000);
+
+    expect(queryByText(message)).toBeInTheDocument();
+
+    fireEvent.mouseLeave(queryByText(message));
     jest.runTimersToTime(1000);
-    tree.update();
 
-    expect(tree).toMatchSnapshot();
-
-    tree.simulate('mouseLeave');
-    jest.runTimersToTime(1000);
-    tree.update();
-
-    expect(tree).toMatchSnapshot();
+    expect(queryByText(message)).not.toBeInTheDocument();
   });
 
   it('does unmount on hover when flag is set', () => {
-    const tree = mount(makeComponent({ duration: 1000, persistOnHover: false }));
-    tree.simulate('mouseEnter');
+    const message = 'test';
+    const { queryByText } = render(
+      <FlashMessage duration={1000} persistOnHover={false}>
+        {message}
+      </FlashMessage>,
+    );
 
-    jest.runTimersToTime(1000);
-    tree.update();
+    fireEvent.mouseEnter(queryByText(message));
+    jest.runTimersToTime(2000);
 
-    expect(tree).toMatchSnapshot();
+    expect(queryByText(message)).not.toBeInTheDocument();
   });
 });
