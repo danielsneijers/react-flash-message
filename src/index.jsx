@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { node, number, bool } from 'prop-types'; // eslint-disable-line import/no-extraneous-dependencies
+import { node, number, bool } from 'prop-types';
 
 class FlashMessage extends Component {
   constructor(props) {
@@ -13,7 +13,8 @@ class FlashMessage extends Component {
   }
 
   componentDidMount() {
-    this.remaining = this.props.duration;
+    const { duration } = this.props;
+    this.remaining = duration;
     this.resumeTimer();
   }
 
@@ -33,7 +34,8 @@ class FlashMessage extends Component {
   }
 
   pauseTimer() {
-    if (this.props.persistOnHover) {
+    const { persistOnHover } = this.props;
+    if (persistOnHover) {
       clearTimeout(this.timer);
 
       this.remaining -= new Date() - this.start;
