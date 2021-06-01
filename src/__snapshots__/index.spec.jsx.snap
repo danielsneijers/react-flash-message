@@ -24,12 +24,3 @@ Array [
   ],
 ]
 `;
-
-exports[`<FlashMessage /> renders and sets a timer 1`] = `
-Array [
-  Array [
-    [Function],
-    5000,
-  ],
-]
-`;
